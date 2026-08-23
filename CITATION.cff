@@ -1,20 +1,36 @@
 cff-version: 1.2.0
-message: "If you use this software or its results, cite the associated article and archived release."
-title: "Arab Light crude TGA kinetics and heating-rate-holdout machine learning"
+message: "If you use this software or its results, please cite the associated article and this archived release."
+title: "Arab Light Crude TGA: Isoconversional Kinetics and Heating-Rate-Holdout Machine Learning"
 type: software
 version: "0.1.1-preacceptance"
 date-released: 2026-08-23
 authors:
-  - family-names: "To be updated"
-    given-names: "Article authors"
+  - family-names: "Islam"
+    given-names: "K. M. Oajedul"
+    email: "oajedul.islam@du.ac.bd"
+  - family-names: "Al-Mamun"
+    given-names: "Md. Abdullah"
+    email: "almamun@che.kuet.ac.bd"
+  - family-names: "Hossain"
+    given-names: "Md. Zaid"
+    email: "mdzaideng@gmail.com"
 license: BSD-3-Clause
+repository-code: "https://github.com/mdzaideng/arab-light-crude-tga-kinetics-ml"
 keywords:
   - thermogravimetric analysis
   - Arab Light crude
   - isoconversional kinetics
+  - FWO
+  - KAS
+  - Starink
+  - activation energy
+  - activation enthalpy
   - heating-rate holdout
   - machine learning
+  - random forest
+  - gradient boosting
 abstract: >-
-  Computational companion code, frozen numerical results, and publication figures for
-  integrated isoconversional kinetics and complete-heating-rate-holdout
-  modeling of Arab Light crude under nitrogen and air.
+  Computational companion code, frozen numerical results, and publication
+  figures for integrated isoconversional kinetics (FWO, KAS, Starink) and
+  complete-heating-rate-holdout machine learning for thermogravimetric
+  analysis of Arab Light crude under nitrogen and air atmospheres.
