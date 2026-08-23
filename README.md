@@ -239,5 +239,5 @@ Frozen result files and publication figures remain subject to the associated art
 
 ## Release status
 
-**v0.1.1** — Assembled 2026-08-23. Code and results complete; manuscript under review; dataset withheld pending acceptance.
+**v1.0.0** — Assembled 2026-08-23. Code and results complete; manuscript under review; dataset withheld pending acceptance.
 Complete [`docs/RELEASE_CHECKLIST.md`](docs/RELEASE_CHECKLIST.md) before tagging v1.0.0.
