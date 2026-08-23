@@ -1,0 +1,35 @@
+{
+  "analysis_version": "Current Supplementary Figure S1 regression diagnostics",
+  "source_file": "Arab_Light_TGA_Canonical_Data.xlsx",
+  "source_sha256": "bd79aa8575c4480aae806f45cb9c11f04f0312f1d29deb0543b3bdf2703fd60d",
+  "direct_input_sheet": "Kinetic_Talpha",
+  "heating_rates_C_min": [
+    5.0,
+    10.0,
+    20.0
+  ],
+  "conversion_levels": [
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8
+  ],
+  "models": {
+    "FWO": "y=ln(beta); Ea=-slope*R/1.052",
+    "KAS": "y=ln(beta/T^2); Ea=-slope*R",
+    "Starink": "y=ln(beta/T^1.92); Ea=-slope*R/1.0008"
+  },
+  "regression_x": "1/T_alpha in K^-1; figures display 1000/T_alpha",
+  "regression": "ordinary least squares with intercept",
+  "n_per_fit": 3,
+  "residual_dof": 1,
+  "uncertainty": "Slope and Ea standard errors are conditional on the extracted T_alpha values. The 95% CI half-width uses t(0.975, df=1). Instrument, preprocessing, interpolation, and repeatability uncertainty are excluded.",
+  "r2_display_policy": "Shared legends encode alpha only. Each method panel states its own R2 range; the Air alpha=0.8 value is shown separately. Exact four-decimal and full-precision values are retained in the audit outputs.",
+  "captions": {
+    "FigureS1a": "Isoconversional regression diagnostics for Arab Light crude oil under N2. Symbols denote the three heating rates (5, 10, and 20 degrees C/min), and lines are ordinary-least-squares fits for each conversion. The shared legend identifies conversion only; method-specific R2 ranges are stated above their respective panels, and exact values are reported in the regression audit table. Each fit contains n=3 observations with one residual degree of freedom; R2 therefore describes linear fit agreement but not parameter precision.",
+    "FigureS1b": "Isoconversional regression diagnostics for Arab Light crude oil in Air. Symbols denote the three heating rates (5, 10, and 20 degrees C/min), and lines are ordinary-least-squares fits for each conversion. The shared legend identifies conversion only; method-specific R2 ranges and the separate alpha=0.8 values are stated above their respective panels. Alpha=0.8* represents late residue oxidation and is not pooled with the alpha=0.2-0.7 main region. Each fit contains n=3 observations with one residual degree of freedom; R2 does not quantify slope precision."
+  }
+}

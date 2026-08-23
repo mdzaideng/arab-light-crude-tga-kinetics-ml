@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1717" height="916" viewBox="0 0 1717 916">
+  <defs>
+    <style><![CDATA[
+      .txt { font-family: 'Times New Roman', Times, serif; fill:#111; }
+      .label { font-size:32px; }
+      .small { font-size:27px; }
+      .medium { font-size:30px; }
+      .line { fill:none; stroke:#111; stroke-width:5; stroke-linecap:round; stroke-linejoin:round; }
+      .thin { fill:none; stroke:#111; stroke-width:3.2; stroke-linecap:round; stroke-linejoin:round; }
+      .orange { fill:none; stroke:#d85f00; stroke-width:5; stroke-linecap:round; stroke-linejoin:round; }
+      .soft { fill:#f8fbfd; stroke:#111; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; }
+      .screen { fill:#dff4fb; stroke:#111; stroke-width:3.5; }
+      .blue { fill:none; stroke:#1887c9; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; }
+      .shadow { fill:#000; opacity:.06; }
+    ]]></style>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,5 L0,10 z" fill="#111"/>
+    </marker>
+    <linearGradient id="deviceGrad" x1="0" x2="1">
+      <stop offset="0" stop-color="#edf4f7"/>
+      <stop offset="0.5" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d7e4ea"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1717" height="916" fill="#fff"/>
+
+  <!-- Main TGA cabinet -->
+  <rect x="625" y="121" rx="17" ry="17" width="470" height="560" class="line"/>
+
+  <!-- Thermocouple / top signal path -->
+  <path d="M892 162 V49 H1345 V145" class="line" marker-end="url(#arrow)"/>
+  <path d="M835 165 L554 48" class="thin" marker-end="url(#arrow)"/>
+  <text x="334" y="68" class="txt label">Thermocouple</text>
+
+  <!-- Furnace assembly -->
+  <g id="furnaceAssembly">
+    <!-- upper posts -->
+    <rect x="813" y="165" width="34" height="81" class="orange"/>
+    <rect x="881" y="165" width="34" height="81" class="orange"/>
+    <rect x="726" y="245" width="277" height="19" class="orange"/>
+    <!-- sample chamber rails -->
+    <path d="M746 264 V319 M983 264 V319" class="orange"/>
+    <path d="M772 264 V319 M957 264 V319" class="orange"/>
+    <rect x="738" y="319" rx="7" width="280" height="17" class="orange"/>
+    <!-- sample pan -->
+    <path d="M777 286 L797 271 H923 L943 286 L928 307 H792 Z" fill="#fff" stroke="#111" stroke-width="3.2" stroke-linejoin="round"/>
+    <path d="M803 286 H919" class="thin"/>
+    <path d="M819 288 h19 M850 288 h15 M881 288 h21" stroke="#d85f00" stroke-width="3" stroke-linecap="round"/>
+    <!-- lower furnace body -->
+    <rect x="708" y="338" rx="9" width="317" height="74" fill="#fff" stroke="#d85f00" stroke-width="5"/>
+    <circle cx="748" cy="375" r="19" fill="#fff" stroke="#d85f00" stroke-width="5"/>
+    <circle cx="986" cy="375" r="19" fill="#fff" stroke="#d85f00" stroke-width="5"/>
+    <rect x="798" y="352" width="130" height="43" fill="#fff" stroke="#d85f00" stroke-width="4"/>
+    <text x="815" y="384" class="txt medium">Furnace</text>
+  </g>
+
+  <!-- Sample label -->
+  <path d="M790 286 H492" class="thin" marker-end="url(#arrow)"/>
+  <text x="382" y="277" class="txt label">Sample</text>
+
+  <!-- Balance -->
+  <rect x="736" y="611" rx="5" width="243" height="69" fill="#f7f9fa" stroke="#111" stroke-width="5"/>
+  <rect x="745" y="620" rx="2" width="225" height="50" fill="#fff" stroke="#555" stroke-width="2.5"/>
+  <text x="808" y="656" class="txt label">Balance</text>
+
+  <!-- Gas lines entering furnace -->
+  <path d="M315 493 V357 H708" class="line" marker-end="url(#arrow)"/>
+  <path d="M409 493 V420 H987 V398" class="line" marker-end="url(#arrow)"/>
+
+  <!-- Gas cylinders -->
+  <g id="gasCylinders">
+    <!-- left cylinder shadow -->
+    <ellipse cx="310" cy="800" rx="48" ry="9" class="shadow"/>
+    <ellipse cx="410" cy="800" rx="48" ry="9" class="shadow"/>
+    <!-- N2 -->
+    <path d="M279 619 Q279 601 295 596 V579 H329 V596 Q345 601 345 619 V770 Q345 786 329 786 H295 Q279 786 279 770 Z" fill="#fff" stroke="#111" stroke-width="4"/>
+    <rect x="298" y="562" width="28" height="21" fill="#fff" stroke="#111" stroke-width="4"/>
+    <path d="M300 548 H324 V563 H300 Z" fill="#fff" stroke="#111" stroke-width="4"/>
+    <circle cx="269" cy="548" r="15" fill="#fff" stroke="#111" stroke-width="3"/>
+    <path d="M269 548 l5 -8" class="thin"/>
+    <rect x="257" y="560" width="18" height="12" fill="#fff" stroke="#111" stroke-width="3"/>
+    <rect x="330" y="560" width="17" height="11" fill="#fff" stroke="#111" stroke-width="3"/>
+    <line x1="291" y1="651" x2="334" y2="651" class="thin"/>
+    <text x="294" y="716" class="txt label">N<tspan baseline-shift="sub" font-size="22">2</tspan></text>
+
+    <!-- Air -->
+    <path d="M379 619 Q379 601 395 596 V579 H429 V596 Q445 601 445 619 V770 Q445 786 429 786 H395 Q379 786 379 770 Z" fill="#fff" stroke="#111" stroke-width="4"/>
+    <rect x="398" y="562" width="28" height="21" fill="#fff" stroke="#111" stroke-width="4"/>
+    <path d="M400 548 H424 V563 H400 Z" fill="#fff" stroke="#111" stroke-width="4"/>
+    <circle cx="435" cy="548" r="15" fill="#fff" stroke="#111" stroke-width="3"/>
+    <path d="M435 548 l-5 -8" class="thin"/>
+    <rect x="381" y="560" width="17" height="11" fill="#fff" stroke="#111" stroke-width="3"/>
+    <rect x="429" y="560" width="17" height="11" fill="#fff" stroke="#111" stroke-width="3"/>
+    <line x1="390" y1="651" x2="434" y2="651" class="thin"/>
+    <text x="393" y="716" class="txt label">Air</text>
+  </g>
+
+  <!-- Valves -->
+  <g id="valves" fill="#111" stroke="#111">
+    <path d="M289 482 L315 498 L289 514 Z M341 482 L315 498 L341 514 Z"/>
+    <line x1="315" y1="465" x2="315" y2="530" class="line"/>
+    <line x1="299" y1="498" x2="278" y2="498" class="thin"/>
+    <line x1="331" y1="498" x2="353" y2="498" class="thin"/>
+    <path d="M383 482 L409 498 L383 514 Z M435 482 L409 498 L435 514 Z"/>
+    <line x1="409" y1="465" x2="409" y2="530" class="line"/>
+    <line x1="393" y1="498" x2="372" y2="498" class="thin"/>
+    <line x1="425" y1="498" x2="447" y2="498" class="thin"/>
+  </g>
+
+  <!-- Flow regulator label and leader -->
+  <text x="49" y="381" class="txt label">Flow regulator</text>
+  <text x="103" y="419" class="txt label">valves</text>
+  <path d="M221 420 L285 483" class="thin" marker-end="url(#arrow)"/>
+  <path d="M211 411 L373 481" class="thin" marker-end="url(#arrow)"/>
+
+  <!-- Carrier gases brace -->
+  <path d="M250 798 q0 16 16 16 h79 q15 0 15 15 q0 -15 15 -15 h81 q16 0 16 -16" class="thin"/>
+  <text x="274" y="860" class="txt label">Carrier gases</text>
+
+  <!-- Temperature analyzer -->
+  <g id="tempAnalyzer">
+    <ellipse cx="1320" cy="304" rx="130" ry="10" class="shadow"/>
+    <rect x="1207" y="168" rx="18" width="234" height="135" fill="url(#deviceGrad)" stroke="#111" stroke-width="4"/>
+    <rect x="1232" y="194" width="181" height="85" class="screen"/>
+    <rect x="1245" y="205" width="95" height="60" fill="#fff" stroke="#1887c9" stroke-width="3"/>
+    <path d="M1253 240 L1264 215 L1278 251 L1291 224 L1305 246 L1321 225 L1334 241" class="blue"/>
+    <rect x="1350" y="205" width="50" height="21" fill="#effaff" stroke="#1887c9" stroke-width="2.5"/>
+    <rect x="1350" y="232" width="23" height="15" fill="#effaff" stroke="#1887c9" stroke-width="2.5"/>
+    <rect x="1378" y="232" width="22" height="15" fill="#effaff" stroke="#1887c9" stroke-width="2.5"/>
+    <rect x="1350" y="252" width="23" height="13" fill="#1887c9" opacity=".18" stroke="#1887c9" stroke-width="2.5"/>
+    <rect x="1378" y="252" width="22" height="13" fill="#1887c9" opacity=".18" stroke="#1887c9" stroke-width="2.5"/>
+    <rect x="1312" y="154" rx="8" width="58" height="18" fill="#111"/>
+    <line x1="1214" y1="300" x2="1204" y2="315" class="thin"/>
+    <line x1="1434" y1="300" x2="1444" y2="315" class="thin"/>
+  </g>
+  <text x="1461" y="229" class="txt label">Temperature</text>
+  <text x="1493" y="267" class="txt label">analyzer</text>
+
+  <!-- Analyzer to computer -->
+  <path d="M1320 305 V389 H1521 V495" class="line" marker-end="url(#arrow)"/>
+
+  <!-- Computer -->
+  <g id="computer">
+    <ellipse cx="1478" cy="752" rx="150" ry="12" class="shadow"/>
+    <rect x="1471" y="498" rx="14" width="154" height="231" fill="#fff" stroke="#111" stroke-width="5"/>
+    <rect x="1491" y="520" rx="4" width="114" height="23" fill="#f7f9fa" stroke="#111" stroke-width="4"/>
+    <rect x="1492" y="558" width="114" height="50" fill="#eef1f3" stroke="#111" stroke-width="3"/>
+    <circle cx="1595" cy="646" r="7" fill="#fff" stroke="#111" stroke-width="4"/>
+    <path d="M1512 709 h76" class="thin"/>
+    <path d="M1512 721 h76" class="thin"/>
+
+    <rect x="1340" y="536" rx="14" width="201" height="151" fill="#fff" stroke="#111" stroke-width="5"/>
+    <rect x="1353" y="549" width="175" height="115" fill="#fff" stroke="#555" stroke-width="2.4"/>
+    <path d="M1371 578 l20 -25 M1386 588 l20 -25" class="thin"/>
+    <rect x="1420" y="688" width="34" height="29" fill="#fff" stroke="#111" stroke-width="5"/>
+    <rect x="1385" y="717" rx="8" width="105" height="18" fill="#fff" stroke="#111" stroke-width="5"/>
+  </g>
+  <text x="1412" y="798" class="txt label">Computer</text>
+</svg>

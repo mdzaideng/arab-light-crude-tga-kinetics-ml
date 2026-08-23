@@ -1,0 +1,18 @@
+{
+  "canonical_source_workbook": {
+    "path": "data/private/Arab_Light_TGA_Canonical_Data.xlsx",
+    "sha256": "bd79aa8575c4480aae806f45cb9c11f04f0312f1d29deb0543b3bdf2703fd60d"
+  },
+  "raw_source_workbook": {
+    "path": "data/private/Arab_Light_Kinetics_Source_FWO_KAS_Starink.xlsx",
+    "sha256": "cd23a90667cb9a78fe29e519930d4eebd87e63427f8e08b7c47ca484c199c1fb"
+  },
+  "reconstruction_script": {
+    "path": "src/kinetics/01_build_canonical_pipeline.py",
+    "sha256": "92310eaaa5c09505c6cdf380491d6334e5c7c099c5ac573a8d5fdf2c8185284d"
+  },
+  "freeze_script": {
+    "path": "src/kinetics/07_build_canonical_reconstruction_validation.py",
+    "sha256": "c32cd946d99f4fb55bb6a822cf1b3b866c15a0fd3008b63cf0ffa4bed93365e6"
+  }
+}

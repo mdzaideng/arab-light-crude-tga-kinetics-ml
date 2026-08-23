@@ -1,0 +1,6 @@
+Air beta=5, 662-664K DTG wiggle materiality check
+T_0.7 without bridge: 618.7990 K, with bridge: 618.7990 K, delta: +0.00000 K
+T_0.8 without bridge: 688.5040 K, with bridge: 688.5040 K, delta: +0.00000 K
+Conclusion: NOT MATERIAL (threshold 0.05K)
+Per Phase-2 scope, the canonical kinetics pipeline is NOT modified to remove this wiggle.
+It is documented as a small SG derivative artifact affecting visualization only.

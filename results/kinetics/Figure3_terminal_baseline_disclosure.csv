@@ -1,0 +1,7 @@
+atmosphere,beta_C_per_min,canonical_grid_terminal_offset_at_1000K_pct,canonical_cleaned_final_mass_pct,baseline_mode
+N2,5,0.0,2.6287175518244705,none
+N2,10,0.0,2.666481474231718,none
+N2,20,0.0,3.102807143068378,none
+Air,5,-0.045640049585867246,-0.00027514306394232696,constant additive offset at 1000 K
+Air,10,-0.3162038759705335,-7.219841169293733e-05,constant additive offset at 1000 K
+Air,20,0.31943679732115016,-0.0003016796755154448,constant additive offset at 1000 K
