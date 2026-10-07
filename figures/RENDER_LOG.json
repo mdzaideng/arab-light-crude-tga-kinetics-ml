@@ -1,0 +1,36 @@
+{
+  "font_family": "Times New Roman",
+  "font_file": "times.ttf",
+  "fallback_allowed": false,
+  "matplotlib": "3.10.8",
+  "python": "3.12.10",
+  "platform": "Windows",
+  "rendered_utc": "2026-10-07T09:40:08Z",
+  "figures": [
+    "figures/main/Figure3_dwell_ramp_domain_validation.pdf",
+    "figures/main/Figure3_dwell_ramp_domain_validation.png",
+    "figures/main/Figure4_TG_DTG_profiles.pdf",
+    "figures/main/Figure4_TG_DTG_profiles.png",
+    "figures/main/Figure5_apparent_activation_energy.pdf",
+    "figures/main/Figure5_apparent_activation_energy.png",
+    "figures/main/Figure6_activation_enthalpy.png",
+    "figures/main/Figure7_ML_holdout_predictions.png",
+    "figures/main/Figure8_ML_model_performance.png",
+    "figures/main/Figure9_ML_atmosphere_resolved_performance.png",
+    "figures/supplementary/FigureS1a_regression_N2.pdf",
+    "figures/supplementary/FigureS1a_regression_N2.png",
+    "figures/supplementary/FigureS1b_regression_Air.pdf",
+    "figures/supplementary/FigureS1b_regression_Air.png",
+    "figures/supplementary/FigureS2_time_domain_mass_comparison.pdf",
+    "figures/supplementary/FigureS2_time_domain_mass_comparison.png",
+    "figures/supplementary/FigureS3_RF_posthoc_sensitivity.png",
+    "figures/supplementary/FigureS4_GBR_posthoc_sensitivity.png",
+    "figures/supplementary/FigureS5_feature_ablation.png",
+    "figures/supplementary/FigureS6_RF_sensitivity_grid.png",
+    "figures/supplementary/FigureS7_GBR_sensitivity_grid.png"
+  ],
+  "not_rendered_from_code": [
+    "figures/main/Figure1_analytical_workflow.png",
+    "figures/main/Figure2_experimental_setup.png"
+  ]
+}

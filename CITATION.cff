@@ -2,20 +2,30 @@ cff-version: 1.2.0
 message: "If you use this software or its results, please cite the associated article and this archived release."
 title: "Arab Light Crude TGA: Isoconversional Kinetics and Heating-Rate-Holdout Machine Learning"
 type: software
-version: "0.1.1-preacceptance"
-date-released: 2026-08-23
+version: "1.0.1"
+date-released: 2026-10-06
 authors:
-  - family-names: "Islam"
-    given-names: "K. M. Oajedul"
-    email: "oajedul.islam@du.ac.bd"
-  - family-names: "Al-Mamun"
-    given-names: "Md. Abdullah"
-    email: "almamun@che.kuet.ac.bd"
   - family-names: "Hossain"
     given-names: "Md. Zaid"
     email: "mdzaideng@gmail.com"
+    orcid: "https://orcid.org/0009-0003-3301-3609"
+    affiliation: "Department of Industrial Engineering and Management, Khulna University of Engineering & Technology, Khulna 9203, Bangladesh"
+  - family-names: "Al-Mamun"
+    given-names: "Md. Abdullah"
+    email: "almamun@che.kuet.ac.bd"
+    orcid: "https://orcid.org/0009-0000-6471-1838"
+    affiliation: "Department of Chemical Engineering, Khulna University of Engineering & Technology, Khulna 9203, Bangladesh"
+  - family-names: "Islam"
+    given-names: "K. M. Oajedul"
+    email: "oajedul.islam@du.ac.bd"
+    orcid: "https://orcid.org/0000-0001-8646-0830"
+    affiliation: "Department of Applied Chemistry and Chemical Engineering, University of Dhaka, Dhaka 1000, Bangladesh"
 license: BSD-3-Clause
 repository-code: "https://github.com/mdzaideng/arab-light-crude-tga-kinetics-ml"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22069185"
+    description: "Concept DOI covering all archived versions"
 keywords:
   - thermogravimetric analysis
   - Arab Light crude

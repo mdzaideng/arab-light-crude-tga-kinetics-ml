@@ -17,6 +17,7 @@ class RepositoryIntegrityTests(unittest.TestCase):
             "CITATION.cff",
             "requirements.txt",
             "run_all.py",
+            "render_publication_figures.py",
             "src/kinetics/run_all_latest.py",
             "src/ml/run_ml_analysis.py",
             "results/kinetics/Arab_Light_Kinetics_Consolidated_Results.xlsx",
@@ -69,10 +70,17 @@ class RepositoryIntegrityTests(unittest.TestCase):
     def test_publication_pngs_are_valid(self):
         main = sorted((ROOT / "figures" / "main").glob("Figure*.png"))
         supplementary = sorted((ROOT / "figures" / "supplementary").glob("FigureS*.png"))
-        self.assertEqual(len(main), 8)
+        self.assertEqual(len(main), 9)
         self.assertEqual(len(supplementary), 8)
         for path in main + supplementary:
             self.assertEqual(path.read_bytes()[:8], b"\x89PNG\r\n\x1a\n", str(path))
+
+    def test_publication_figures_rendered_in_times_new_roman(self):
+        # Written by render_publication_figures.py; fails for preview renders made with a fallback font.
+        log = json.loads((ROOT / "figures" / "RENDER_LOG.json").read_text(encoding="utf-8"))
+        self.assertEqual(log["font_family"], "Times New Roman", f"figures rendered with {log['font_family']}")
+        self.assertFalse(log["fallback_allowed"])
+        self.assertEqual(len(log["figures"]), 21)
 
     def test_active_python_has_no_colab_or_windows_paths(self):
         forbidden = ["/content/drive", "C:\\\\Users\\\\"]

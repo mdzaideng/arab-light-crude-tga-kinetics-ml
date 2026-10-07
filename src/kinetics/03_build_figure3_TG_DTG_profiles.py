@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from alc_core import (
+from alc_core import (publication_font_rc,
     BETAS, FIG_MAIN_DIR, FIG_SUPP_DIR, RESULTS_DIR,
     canonical_clean_curve, load_raw_curve, stable_ramp_onset, save_figure,
 )
@@ -26,7 +26,7 @@ RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 COLORS = {5: "#1f77b4", 10: "#d95f02", 20: "#2ca02c"}
 plt.rcParams.update({
-    "font.family": "DejaVu Sans", "font.size": 9.2,
+    **publication_font_rc(), "font.size": 9.2,
     "axes.labelsize": 10, "axes.titlesize": 11,
     "pdf.fonttype": 42, "ps.fonttype": 42,
 })
@@ -71,7 +71,7 @@ for row, atm in enumerate(("N2", "Air")):
         ax_tg.plot(
             curve.temperature_K, curve.mass_clean_pct,
             color=COLORS[beta], lw=1.35,
-            label=rf"$\beta$={beta} $^\circ$C min$^{{-1}}$" if row == 0 else None,
+            label=rf"$\beta$ = {beta} °C min$^{{-1}}$" if row == 0 else None,
         )
         onset_T = float(onset_df[(onset_df.atmosphere == atm) & (onset_df.beta_C_per_min == beta)].onset_temperature_K.iloc[0])
         display_start = max(350.0, onset_T + 20.0)
@@ -80,7 +80,7 @@ for row, atm in enumerate(("N2", "Air")):
 
     ax_tg.set_ylim(-1, 103)
     ax_tg.set_xlim(323, 1000)
-    ax_tg.set_ylabel(f"{atmosphere_title}\nResidual mass (%)", fontsize=9.6)
+    ax_tg.set_ylabel(f"{atmosphere_title}\nRemaining mass (%)", fontsize=9.6)
     ax_tg.spines["top"].set_visible(False)
     ax_tg.spines["right"].set_visible(False)
     ax_dtg.axhline(0, color="0.78", lw=0.6, zorder=0)
@@ -99,13 +99,13 @@ for row, atm in enumerate(("N2", "Air")):
 
     # The 30-min dwell is compressed into the very low-T edge on a temperature axis.
     ax_tg.annotate(
-        "30-min dwell/transition\ncompressed on T-axis\n(see Fig. S1)",
-        xy=(328, 88), xytext=(390, 73), fontsize=7.2, color="0.35",
+        "30-min dwell/transition\ncompressed on T-axis\n(see Fig. 3)",
+        xy=(328, 88), xytext=(560, 99), ha="left", va="top", fontsize=7.2, color="0.35",
         arrowprops=dict(arrowstyle="->", color="0.45", lw=0.7),
     )
 
 axes[1, 0].text(
-    0.98, 0.06,
+    0.98, 0.42,
     "Air cleaning uses the canonical constant additive\nbaseline offset anchored at 1000 K; see SI audit.",
     transform=axes[1, 0].transAxes, ha="right", va="bottom", fontsize=6.8, color="0.35",
 )
@@ -116,12 +116,12 @@ for ax, label in zip(axes.flat, ["(a)", "(b)", "(c)", "(d)"]):
 fig.subplots_adjust(left=0.10, right=0.985, top=0.97, bottom=0.08, hspace=0.28, wspace=0.25)
 save_figure(
     fig,
-    FIG_MAIN_DIR / "Figure3_TG_DTG_profiles.png",
-    FIG_MAIN_DIR / "Figure3_TG_DTG_profiles.pdf",
+    FIG_MAIN_DIR / "Figure4_TG_DTG_profiles.png",
+    FIG_MAIN_DIR / "Figure4_TG_DTG_profiles.pdf",
     dpi=400,
 )
 plt.close(fig)
-print("Wrote Figure3_TG_DTG_profiles.png / .pdf")
+print("Wrote Figure4_TG_DTG_profiles.png / .pdf")
 
 # Supplementary time-domain comparison: deliberately uncorrected raw instrument data.
 fig2, axes2 = plt.subplots(1, 3, figsize=(13.0, 4.2), sharey=True)
@@ -130,17 +130,17 @@ for ax, beta in zip(axes2, BETAS):
     air = load_raw_curve("Air", beta)
     ax.plot(n2.time_s / 60.0, n2.mass_pct, color="#1f77b4", lw=1.3, label="N$_2$ (pyrolysis)")
     ax.plot(air.time_s / 60.0, air.mass_pct, color="#d62728", lw=1.3, label="Air (combustion)")
-    ax.set_title(rf"$\beta$={beta} $^\circ$C min$^{{-1}}$", fontsize=10)
+    ax.set_title(rf"$\beta$ = {beta} °C min$^{{-1}}$", fontsize=10)
     ax.set_xlabel("Time (min)")
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
     ax.set_ylim(-1.5, 103)
-axes2[0].set_ylabel("Instrument-recorded residual mass (%)")
+axes2[0].set_ylabel("Instrument-recorded remaining mass (%)")
 axes2[0].legend(loc="upper right", frameon=False, fontsize=8)
 axes2[1].text(
-    0.5, 0.03,
-    "Raw time-domain display; no terminal-baseline correction applied.",
-    transform=axes2[1].transAxes, ha="center", va="bottom", fontsize=7.2, color="0.35",
+    0.97, 0.62,
+    "Raw time-domain display;\nno terminal-baseline correction applied.",
+    transform=axes2[1].transAxes, ha="right", va="bottom", fontsize=7.2, color="0.35",
 )
 for ax, label in zip(axes2, ["(a)", "(b)", "(c)"]):
     ax.text(-0.08, 1.05, label, transform=ax.transAxes, fontsize=11.5, fontweight="bold")

@@ -12,6 +12,7 @@ from pathlib import Path
 os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "alc-matplotlib-cache"))
 
 import matplotlib.pyplot as plt
+from alc_core import publication_font_rc
 from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 import numpy as np
@@ -200,7 +201,7 @@ def regressions(talpha: dict[tuple[str, float], dict[int, float]]) -> pd.DataFra
 
 def plot_main_figure(frame: pd.DataFrame, output_dir: Path) -> None:
     plt.rcParams.update({
-        "font.family": "DejaVu Sans",
+        **publication_font_rc(),
         "font.size": 9.0,
         "axes.labelsize": 10.0,
         "axes.titlesize": 10.5,
@@ -289,7 +290,7 @@ def plot_main_figure(frame: pd.DataFrame, output_dir: Path) -> None:
 
     legend_handles = [
         Line2D([0], [0], color="#444444", marker="o", lw=1.4, markersize=4.4,
-               label="KAS estimate +/- regression SE"),
+               label="KAS estimate ± regression SE"),
         Patch(facecolor="#777777", alpha=0.18, edgecolor="none",
               label="FWO/KAS/Starink min-max spread"),
         Line2D([0], [0], color=red, marker="D", mfc="white", mec=red, mew=1.4,
@@ -298,8 +299,8 @@ def plot_main_figure(frame: pd.DataFrame, output_dir: Path) -> None:
     figure.legend(handles=legend_handles, loc="lower center", bbox_to_anchor=(0.54, 0.008),
                   ncol=3, frameon=False, handlelength=2.0, columnspacing=1.5)
     output_dir.mkdir(parents=True, exist_ok=True)
-    figure.savefig(output_dir / "Figure4_apparent_activation_energy.pdf", dpi=600)
-    figure.savefig(output_dir / "Figure4_apparent_activation_energy.png", dpi=600)
+    figure.savefig(output_dir / "Figure5_apparent_activation_energy.pdf", dpi=600)
+    figure.savefig(output_dir / "Figure5_apparent_activation_energy.png", dpi=600)
     plt.close(figure)
 
 
@@ -341,7 +342,7 @@ def write_outputs(source: Path, frame: pd.DataFrame, output_dir: Path) -> None:
     )
     (output_dir / "Figure4_caption.txt").write_text(caption + "\n", encoding="utf-8")
     protocol = {
-        "figure": "Figure4_apparent_activation_energy",
+        "figure": "Figure5_apparent_activation_energy",
         "source_file": source.name,
         "source_sha256": sha256(source),
         "input_sheet": "Kinetic_Talpha",

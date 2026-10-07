@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 
-from alc_core import FIG_MAIN_DIR, RESULTS_DIR, save_figure
+from alc_core import FIG_MAIN_DIR, RESULTS_DIR, publication_font_rc, save_figure
 from kinetics_regression_core import resolve_source, load_talpha, regressions
 
 FIG_MAIN_DIR.mkdir(parents=True, exist_ok=True)
@@ -37,7 +37,7 @@ N2_ALPHAS = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]
 AIR_MAIN_ALPHAS = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
 
 plt.rcParams.update({
-    "font.family": "DejaVu Sans", "font.size": 9.5,
+    **publication_font_rc(), "font.size": 9.5,
     "axes.labelsize": 11, "axes.titlesize": 12,
     "pdf.fonttype": 42, "ps.fonttype": 42,
 })
@@ -129,7 +129,7 @@ kwargs.update(transform=ax_air.transAxes)
 ax_air.plot((-d, +d), (1 - d, 1 + d), **kwargs)
 
 legend_items = [
-    Line2D([0], [0], color="0.25", marker="o", lw=1.5, label="KAS estimate +/- regression SE"),
+    Line2D([0], [0], color="0.25", marker="o", lw=1.5, label="KAS estimate ± regression SE"),
     Line2D([0], [0], color="0.55", lw=1.0, marker="_", markersize=8, label="individual conditional 95% CI (df=1)"),
     Patch(facecolor="0.45", alpha=0.17, label="FWO/KAS/Starink min-max spread"),
 ]
@@ -138,11 +138,11 @@ fig.legend(handles=legend_items, loc="lower center", ncol=3, frameon=False,
 fig.subplots_adjust(left=0.075, right=0.99, top=0.94, bottom=0.14, wspace=0.25)
 save_figure(
     fig,
-    FIG_MAIN_DIR / "Figure4_apparent_activation_energy.png",
-    FIG_MAIN_DIR / "Figure4_apparent_activation_energy.pdf",
+    FIG_MAIN_DIR / "Figure5_apparent_activation_energy.png",
+    FIG_MAIN_DIR / "Figure5_apparent_activation_energy.pdf",
     dpi=400,
 )
 plt.close(fig)
 
-print("Wrote Figure4_apparent_activation_energy.png / .pdf")
+print("Wrote Figure5_apparent_activation_energy.png / .pdf")
 print(f"Air alpha=0.8 SE top = {r08.Ea_kJ_mol + r08.SE_Ea_kJ_mol:.2f}; axis top = {r08.Ea_kJ_mol + r08.SE_Ea_kJ_mol + upper_margin:.2f}")

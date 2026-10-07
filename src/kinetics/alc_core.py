@@ -196,3 +196,26 @@ def save_figure(fig, png_path: Path, pdf_path: Path, dpi: int = 400) -> None:
     """Save publication figures with deterministic PDF metadata and TrueType fonts."""
     fig.savefig(png_path, dpi=dpi, bbox_inches="tight")
     fig.savefig(pdf_path, bbox_inches="tight", metadata=PDF_METADATA)
+
+
+PUBLICATION_SERIF = ["Times New Roman", "Liberation Serif", "DejaVu Serif"]
+
+
+def publication_font_rc() -> dict:
+    """Times New Roman (as in the archived kinetics figures), STIX for mathtext.
+
+    Raises RuntimeError when Times New Roman is not installed, so that final
+    publication images cannot be produced with a substitute font by mistake.
+    Set ALC_ALLOW_FONT_FALLBACK=1 to allow previews with the metric-compatible
+    fallbacks (Liberation Serif, then DejaVu Serif); a warning is then printed.
+    """
+    import os
+    from matplotlib import font_manager
+    available = {f.name for f in font_manager.fontManager.ttflist}
+    if "Times New Roman" not in available:
+        if os.environ.get("ALC_ALLOW_FONT_FALLBACK") != "1":
+            raise RuntimeError("Times New Roman is not installed. Install it for final figures, "
+                               "or set ALC_ALLOW_FONT_FALLBACK=1 for a preview with a fallback font.")
+        print("WARNING: Times New Roman not installed; preview uses",
+              next((f for f in PUBLICATION_SERIF if f in available), "the Matplotlib default"))
+    return {"font.family": "serif", "font.serif": PUBLICATION_SERIF, "mathtext.fontset": "stix"}

@@ -12,6 +12,7 @@ from pathlib import Path
 os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "alc-matplotlib-cache"))
 
 import matplotlib.pyplot as plt
+from alc_core import publication_font_rc
 from matplotlib.lines import Line2D
 import numpy as np
 import openpyxl
@@ -289,7 +290,7 @@ def create_diagnostic_figure(
 ) -> None:
     plt.rcParams.update(
         {
-            "font.family": "DejaVu Sans",
+            **publication_font_rc(),
             "font.size": 9.5,
             "axes.labelsize": 10.5,
             "axes.titlesize": 11,

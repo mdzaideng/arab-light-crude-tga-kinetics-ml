@@ -11,6 +11,8 @@ SCRIPTS=[
 "04_build_figure4_activation_energy.py",
 "05_build_supplementary_regression_diagnostics.py",
 "06_build_figure5_activation_enthalpy_with_CI.py",
+"10_build_table1_tg_dtg_descriptors.py",
+"11_build_conversion_reference_sensitivity.py",
 ]
 for name in SCRIPTS:
     print(f"\n=== {name} ===")

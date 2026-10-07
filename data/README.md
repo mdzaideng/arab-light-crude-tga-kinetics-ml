@@ -1,8 +1,8 @@
-# Private data inputs
+# Data inputs
 
-No experimental or cleaned dataset is distributed in this pre-acceptance repository package.
+Experimental and cleaned datasets are provided only as the article's Supplementary Material and can be verified with the SHA-256 values listed here.
 
-Place the following files in `data/private/` when the data-release decision is made:
+To reproduce the analyses, place the following Supplementary Material files in `data/private/`:
 
 | Exact filename | Required content | SHA-256 of frozen input |
 |---|---|---|

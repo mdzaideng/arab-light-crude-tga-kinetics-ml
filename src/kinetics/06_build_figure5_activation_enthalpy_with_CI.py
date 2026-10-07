@@ -17,6 +17,7 @@ import os, tempfile
 os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "alc-pubfig-mpl-cache"))
 
 import matplotlib.pyplot as plt
+from alc_core import publication_font_rc
 from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 import numpy as np
@@ -51,7 +52,7 @@ def main() -> None:
     alo, ahi = method_env("Air")
 
     plt.rcParams.update({
-        "font.family": "DejaVu Serif",
+        **publication_font_rc(),
         "font.size": 9,
         "axes.titlesize": 11,
         "axes.labelsize": 10,
@@ -97,7 +98,7 @@ def main() -> None:
                    marker="D", mfc="white", mew=1.4, lw=0, capsize=3, zorder=3)
     ax_at.annotate(
         "late-conversion oxidative regime, α=0.8\n"
-        f"{air_late.dH_kJ_mol:.1f} ± {air_late.dH_SE:.1f} kJ mol⁻¹ (SE)\n"
+        f"{air_late.dH_kJ_mol:.1f} ± {air_late.dH_SE:.1f} kJ mol$^{{-1}}$ (SE)\n"
         f"conditional 95% CI [{air_late.dH_CI_low:.0f}, {air_late.dH_CI_high:.0f}]\n"
         "qualitative only",
         xy=(air_late.alpha, air_late.dH_kJ_mol), xytext=(0.49, 0.63),
@@ -136,18 +137,18 @@ def main() -> None:
     ax_a.set_xticks(np.arange(0.2, 0.9, 0.1))
 
     fig.legend(handles=[
-        Line2D([0], [0], marker="o", lw=1.4, label="KAS estimate +/- regression SE"),
+        Line2D([0], [0], marker="o", lw=1.4, label="KAS estimate ± regression SE"),
         Line2D([0], [0], color="0.5", lw=1.0, label="individual conditional 95% CI (df=1)"),
         Patch(alpha=0.16, label="FWO/KAS/Starink min-max spread"),
     ], loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.53, 0.03))
 
     OUT.mkdir(parents=True, exist_ok=True)
-    fig.savefig(OUT / "Figure5_activation_enthalpy_with_CI.pdf", dpi=600,
+    fig.savefig(OUT / "Figure6_activation_enthalpy.pdf", dpi=600,
                 metadata={"Creator": "ALC final kinetics packaging wrapper", "CreationDate": None, "ModDate": None})
-    fig.savefig(OUT / "Figure5_activation_enthalpy_with_CI.png", dpi=600)
+    fig.savefig(OUT / "Figure6_activation_enthalpy.png", dpi=600)
     plt.close(fig)
 
-    # Numeric acceptance checks against frozen main Table 3 values.
+    # Numeric acceptance checks against frozen main Table 2 (dH) values -- formerly Table 3 before the Table 2+3 merge.
     checks = {
         "N2_a02": (42.1, 2.1), "N2_a08": (112.4, 13.0),
         "Air_a02": (27.0, 2.2), "Air_a07": (86.5, 1.6), "Air_a08": (253.1, 34.9),

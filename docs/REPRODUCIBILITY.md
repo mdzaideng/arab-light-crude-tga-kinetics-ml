@@ -47,13 +47,21 @@ The script performs:
 - temperature-only versus temperature-plus-heating-rate ablation for RF and GBR;
 - RF and GBR post-hoc sensitivity checks;
 - nearest-rate and linear-in-heating-rate deterministic baselines;
-- generation of Figures 6–8 and S3–S7 equivalents.
+- generation of Figures 7–9 and S3–S7 equivalents.
 
 Primary metrics are R2, RMSEP, and MAE on remaining mass percentage. Complete-curve holdouts—not the random row split—are the primary validation.
 
 ## Expected outputs
 
-The runners write to the existing `results/` and `figures/` directories. Publication PNGs without the `_reproduced` suffix are the exact frozen article assets. A fresh run writes `_reproduced` images so the archived article figures are not silently overwritten.
+The runners write to the existing `results/` and `figures/` directories. The ML runner writes `_reproduced` figure names by default so the published ML figures are not overwritten; the kinetics scripts write the publication figure names in `figures/main` and `figures/supplementary` directly, so run them in a separate checkout if the archived images must be preserved.
+
+## Publication figures
+
+```bash
+python render_publication_figures.py
+```
+
+This renders Figures 3–9 and S1a–S7 from code, in Times New Roman with STIX mathematics, and rebuilds `SHA256SUMS.csv`. It runs every figure script in a temporary copy of the repository and copies back only the figure files, so the frozen tables in `results/` are never touched. Times New Roman must be installed; the scripts stop otherwise. `ALC_ALLOW_FONT_FALLBACK=1` allows previews with Liberation Serif (same glyph metrics) or DejaVu Serif. Figures 1 and 2 are static schematics and are never overwritten. The resolved font is written to `figures/RENDER_LOG.json`; the integrity test fails unless it is Times New Roman.
 
 ## Dataset-free checks
 
@@ -61,4 +69,4 @@ The runners write to the existing `results/` and `figures/` directories. Publica
 python -m unittest discover -s tests -v
 ```
 
-These tests verify repository structure, parseability, absence of prohibited manuscript/data files, figure integrity, and portable source paths without requiring private inputs.
+These tests verify repository structure, parseability, absence of prohibited manuscript/data files, figure integrity, and portable source paths without requiring the dataset workbooks.

@@ -18,7 +18,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.signal import savgol_filter
 
-from alc_core import (
+from alc_core import (publication_font_rc,
     BETAS, RESULTS_DIR, FIG_MAIN_DIR, canonical_clean_curve,
     load_raw_curve, rolling_temperature_slope, stable_ramp_onset, save_figure,
 )
@@ -33,7 +33,7 @@ COLORS = {5: "#1f77b4", 10: "#d95f02", 20: "#2ca02c"}
 MARKERS = {0.80: "v", 0.90: "o", 0.95: "^"}
 
 plt.rcParams.update({
-    "font.family": "DejaVu Sans", "font.size": 9.2,
+    **publication_font_rc(), "font.size": 9.2,
     "axes.labelsize": 10, "axes.titlesize": 11,
     "pdf.fonttype": 42, "ps.fonttype": 42,
 })
@@ -148,7 +148,7 @@ for panel, atm in enumerate(("N2", "Air")):
         display_start = max(350.0, onset90 + 20.0)
         ramp = curve[curve.temperature_K >= display_start]
         ax.plot(ramp.temperature_K, ramp.dtg_pct_per_K, color=COLORS[beta], lw=1.6,
-                label=rf"$\beta$={beta} $^\circ$C min$^{{-1}}$")
+                label=rf"$\beta$ = {beta} °C min$^{{-1}}$")
     ax.set_xlim(350, 1000)
     ax.set_xlabel("Temperature (K)")
     ax.set_ylabel(r"Canonical ramp $-\mathrm{d}m/\mathrm{d}T$ (% K$^{-1}$)")
@@ -195,8 +195,8 @@ fig.legend(handles, labels, loc="lower center", ncol=3, frameon=False, bbox_to_a
 fig.subplots_adjust(left=0.075, right=0.985, top=0.97, bottom=0.12)
 save_figure(
     fig,
-    FIG_MAIN_DIR / "Figure2_dwell_ramp_domain_validation.png",
-    FIG_MAIN_DIR / "Figure2_dwell_ramp_domain_validation.pdf",
+    FIG_MAIN_DIR / "Figure3_dwell_ramp_domain_validation.png",
+    FIG_MAIN_DIR / "Figure3_dwell_ramp_domain_validation.pdf",
     dpi=400,
 )
 plt.close(fig)
@@ -208,4 +208,4 @@ print("Air beta=5 SG wiggle (canonical, unmodified):")
 print(zone.to_string(index=False))
 print("\nS1 onset sensitivity:")
 print(onset_df.to_string(index=False))
-print("\nWrote Figure2_dwell_ramp_domain_validation.png / .pdf")
+print("\nWrote Figure3_dwell_ramp_domain_validation.png / .pdf")

@@ -1,0 +1,11 @@
+Holdout regeneration check against archived metric tables (results/ml).
+Per-point predictions were never archived; this compares regenerated metrics with the frozen CSV files.
+Python 3.13.16, NumPy 2.3.5, pandas 2.2.3, scikit-learn 1.8.0
+
+Holdout_Results.csv: shape match = True; max |difference| = 8.882e-16
+Deterministic_Baseline_Results.csv: shape match = True; max |difference| = 4.441e-16
+Ablation_Results.csv: shape match = True; max |difference| = 1.776e-15
+Random_Benchmark.csv: shape match = True; max |difference| = 1.776e-15
+RF_Representative_Sensitivity.csv: shape match = True; max |difference| = 1.110e-16
+RF_Six_Holdout_Depth_Summary.csv: shape match = True; max |difference| = 1.665e-15
+GBR_Representative_Sensitivity.csv: shape match = True; max |difference| = 1.110e-16
