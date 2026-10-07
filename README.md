@@ -4,7 +4,7 @@ Computational companion repository — code, frozen results, and figures — for
 
 This repository contains the analysis code, executed notebooks, frozen numerical results, and publication figures. Experimental and cleaned datasets are provided only as the article's Supplementary Material and can be verified with the SHA-256 values listed in [data/README.md](data/README.md).
 
-**Kinetics preprocessing status.** The kinetics preprocessing code (`src/kinetics/01\_build\_canonical\_pipeline.py`) is a **validated reconstruction** of the original method, built from the archived Methods text, Supplementary Table S1, and the frozen `Kinetic\_Talpha` reference outputs — it is *not* the originally executed source. Running it reproduces the authoritative T\_alpha values to within 0.154 K (alpha 0.2–0.8) and the corresponding activation energies to within 0.046–0.536 kJ/mol; see [docs/PROVENANCE.md](docs/PROVENANCE.md) and `results/kinetics/Canonical\_Reconstruction\_provenance.txt` for the full disclosure. The machine-learning branch, by contrast, is verified against the authoritative results workbook to machine precision (see [docs/RESULTS\_VALIDATION.md](docs/RESULTS_VALIDATION.md)).
+**Kinetics preprocessing status.** The kinetics preprocessing code (`src/kinetics/01_build_canonical_pipeline.py`) is a **validated reconstruction** of the original method, built from the archived Methods text, Supplementary Table S1, and the frozen `Kinetic_Talpha` reference outputs — it is *not* the originally executed source. Running it reproduces the authoritative T_alpha values to within 0.154 K (alpha 0.2–0.8) and the corresponding activation energies to within 0.046–0.536 kJ/mol; see [docs/PROVENANCE.md](docs/PROVENANCE.md) and `results/kinetics/Canonical_Reconstruction_provenance.txt` for the full disclosure. The machine-learning branch, by contrast, is verified against the authoritative results workbook to machine precision (see [docs/RESULTS_VALIDATION.md](docs/RESULTS_VALIDATION.md)).
 
 ## What is included
 
@@ -13,7 +13,7 @@ This repository contains the analysis code, executed notebooks, frozen numerical
 * complete-heating-rate-holdout ML code for RF, GBR, SVR, MLR, and PLSR
 * predictor-ablation, post-hoc sensitivity, and deterministic heating-rate baselines
 * final machine-readable result tables and consolidated result workbooks
-* publication Figures 1–9 and Supplementary Figures S1a–S7, numbered as in the article (see [docs/FILE\_INVENTORY.md](docs/FILE_INVENTORY.md))
+* publication Figures 1–9 and Supplementary Figures S1a–S7, numbered as in the article (see [docs/FILE_INVENTORY.md](docs/FILE_INVENTORY.md))
 * pinned environments, validation tests, checksums, citation metadata, and release guidance
 
 ## Repository layout
@@ -33,11 +33,11 @@ tests/                Dataset-free repository integrity tests
 
 ## Installation
 
-Python 3.13.5 was used for the computational freeze.
+Python 3.13.5 was used for the computational freeze. The v1.0.1 figures were re-rendered with Python 3.12.10 on Windows (see `figures/RENDER_LOG.json`).
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate          # Windows: .venv\\Scripts\\activate
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
@@ -50,23 +50,23 @@ Conda users can instead run `conda env create -f environment.yml`.
 2. Run everything:
 
 ```bash
-python run\_all.py
+python run_all.py
 ```
 
 To re-render every publication figure (Times New Roman required) without touching the frozen tables:
 
 ```bash
-python render\_publication\_figures.py
+python render_publication_figures.py
 ```
 
 Individual branches can be run with:
 
 ```bash
-python src/kinetics/run\_all\_latest.py
-python src/ml/run\_ml\_analysis.py
+python src/kinetics/run_all_latest.py
+python src/ml/run_ml_analysis.py
 ```
 
-The frozen outputs already distributed in `results/` allow numerical review without the input workbooks. See [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md) for expected checks and [docs/RESULTS\_VALIDATION.md](docs/RESULTS_VALIDATION.md) for the completed audit.
+The frozen outputs already distributed in `results/` allow numerical review without the input workbooks. See [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md) for expected checks and [docs/RESULTS_VALIDATION.md](docs/RESULTS_VALIDATION.md) for the completed audit.
 
 ## Headline frozen results
 
@@ -87,5 +87,5 @@ Citation metadata are provided in [CITATION.cff](CITATION.cff). Please cite the 
 
 ## Release status
 
-Version `1.0.1` (2026-10-06). Packaging and documentation update of v1.0.0; frozen numerical results are unchanged, Table 1 and conversion-reference scripts were added, and all data figures are rendered from code (`figures/RENDER\_LOG.json` records the font used). See [CHANGELOG.md](CHANGELOG.md).
+Version `1.0.1` (2026-10-06). Packaging and documentation update of v1.0.0; frozen numerical results are unchanged, Table 1 and conversion-reference scripts were added, and all data figures are rendered from code (`figures/RENDER_LOG.json` records the font used). See [CHANGELOG.md](CHANGELOG.md).
 
